@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link href="http://fonts.cdnfonts.com/css/nokia-cellphone-fc" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/afd6aa68df.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://fontawesome.com/v5.15/">
+    <script src="{% static 'js/scripts.js' %}"></script> <!-- This is how to include a static file -->
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" type="text/css"/>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <title>Weather Checker</title>
+</head>
+<body>
+    
+    <div class="header"><h1>My Weather Checker</h1>
+    </div>
+    <div class="box">
+        <form action="" method="post" name="search" >
+            {% csrf_token %}
+            <input type="text" class="input" name="city" 
+            onmouseout="document.search.txt.value = ''">
+        </form>
+            <i class="fas fa-search"></i>
+            
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <h5><i class="fas fa-globe">{{data.lon}} {{data.lat}}</i></h5>
+        </div>
+        <div class="col-md-4">
+            <h5><i class="fas fa-cloud">{{data.weather}}</i></h5>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+            <h5><i class="fas fa-tint">{{data.humidity}}</i></h5>
+        </div>
+        <div class="col-md-4">
+            <h5><i class="fas fa-thermometer-half">{{data.temp}}</i></h5>
+        </div>
+      </div>
+    <div id="particles-js">  
+    </div>
+  
+</body>
+</html>
