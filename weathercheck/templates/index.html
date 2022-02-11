@@ -15,36 +15,32 @@
     <title>Weather Checker</title>
 </head>
 <body>
-    
     <div class="header"><h1>My Weather Checker</h1>
     </div>
-    <div class="box">
-        <form action="" method="post" name="search" >
-            {% csrf_token %}
-            <input type="text" class="input" name="city" 
-            onmouseout="document.search.txt.value = ''">
-        </form>
-            <i class="fas fa-search"></i>
-            
+    <div id="particles-js">  
+        <div class="box">
+            <form action="" method="post" name="search" >
+                {% csrf_token %}
+                <input type="text" class="input" name="city" 
+                onmouseout="document.search.txt.value = ''">
+            </form>
+                <i class="fas fa-search"></i>
+                        
+        </div>
     </div>
     <div class="row">
         <div class="col-md-4">
-            <h5><i class="fas fa-globe">{{data.lon}} {{data.lat}}</i></h5>
+            <h5><i class="fas fa-globe"> : {{data.lon}}, {{data.lat}}</i></h5>
         </div>
         <div class="col-md-4">
-            <h5><i class="fas fa-cloud">{{data.weather}}</i></h5>
+            <h5><i class="fas fa-cloud"> : {{data.weather}}</i></h5>
+        </div>
+        <div class="col-md-4">
+            <h5><i class="fas fa-tint"> : {{data.humidity}}</i></h5>
+        </div>
+        <div class="col-md-4">
+            <h5><i class="fas fa-thermometer-half"> : {{data.temp}}</i></h5>
         </div>
       </div>
-      <div class="row">
-        <div class="col-md-4">
-            <h5><i class="fas fa-tint">{{data.humidity}}</i></h5>
-        </div>
-        <div class="col-md-4">
-            <h5><i class="fas fa-thermometer-half">{{data.temp}}</i></h5>
-        </div>
-      </div>
-    <div id="particles-js">  
-    </div>
-  
 </body>
 </html>
